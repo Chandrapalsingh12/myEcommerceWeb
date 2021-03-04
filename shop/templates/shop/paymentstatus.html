@@ -1,0 +1,23 @@
+{% extends 'shop/basic.html' %}
+{% block title%} My Ecommerce Web Tracker{% endblock %}
+{% block body %}
+<div class="container">
+   <h5 style="color:white;"> {{response}}</h5>
+    <div class="col my-4">
+    
+        <h2 style="color:blue;">Payment status regarding your order Id {{response.ORDERID}}.<br>
+        You Can use orderId To track your order</h2><b><br>
+        {% if response.RESPCODE == '01' %}
+        <b>ORDER FAILURE</b>
+        {% else %}
+        <h3 style="color:blue;"> ORDER SUCCESS<br><br><br> <marquee>Thank For using My Ecommerce Web </marquee> </h3>
+        {% endif %}
+
+
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}

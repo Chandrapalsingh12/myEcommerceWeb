@@ -1,0 +1,38 @@
+{% extends 'blog/basic.html' %}
+{% block title %} My Blog Page {% endblock %}
+{% block css %} {% endblock %}
+{% block body %}
+  <div class="container">
+
+  <div class="row mb-2 my-4">
+    {% for items in allpost %}
+
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{items.title}}</strong>
+          <h3 class="mb-0">{{items.head0}}</h3>
+          <div class="mb-1 text-muted">{{items.pub_date}}</div>
+          <p class="card-text mb-auto">{{items.chead0}}</p>
+          <a href="blogpost/{{items.post_id}}" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/media/{{items.thumbnail}}" class="bd-placeholder-img" width="200" height="250">
+
+            <rect width="100%" height="100%" fill="#55595c"></rect>
+            
+
+
+        </div>
+      </div>
+    </div>
+      {% if forloop.counter|divisibleby:2 %}
+  </div><div class="row mb-2 my-4">
+    {% endif %}
+    {% endfor %}
+  </div>
+
+
+  </div>
+
+{% endblock %}
